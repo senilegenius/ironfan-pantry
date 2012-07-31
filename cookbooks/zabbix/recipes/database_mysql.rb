@@ -32,7 +32,7 @@ rescue LoadError
   case node[:platform]
   when 'ubuntu', 'debian'
     package("libmysqlclient16-dev") {action :nothing }.run_action(:install)
-  when 'centos'
+  when 'centos','redhat'
     package("mysql-devel") {action :nothing }.run_action(:install)
   else
     Chef::Log.warn "No native MySQL client support for OS #{node[:platform]}"

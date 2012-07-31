@@ -10,7 +10,7 @@
 #
 
 service_name = case node.platform
-when 'centos';  'nfs';
+when 'centos','redhat';  'nfs';
 else            'nfs-kernel-server'
 end
 
