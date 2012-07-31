@@ -19,7 +19,7 @@
 
 # Force immediate install of these packages
 case node[:platform]
-when 'centos'
+when 'centos','redhat'
   package("libxml2-devel"    ){ action :nothing }.run_action(:install)
 else
   package("libxml2-dev"      ){ action :nothing }.run_action(:install)

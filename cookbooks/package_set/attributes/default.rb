@@ -58,7 +58,7 @@ default[:package_set][:install]          = %w[ ]
 
 default[:package_set][:pkgs][:base]      =  \
   case node.platform
-    when 'centos'
+    when 'centos','redhat'
       %w[ tree git zip openssl wget curl runit libxslt-devel ]
     else
       %w[ tree git zip openssl wget curl runit libyaml-dev libxslt1-dev ]
@@ -67,7 +67,7 @@ default[:package_set][:gems][:base]      = %w[ bundler ]
 
 default[:package_set][:pkgs][:dev]       = \
     case node.platform
-      when 'centos'
+      when 'centos','redhat'
         %w[ emacs-nox elinks w3m ctags-etags ]
       else
         %w[ tree git zip openssl wget curl runit libyaml-dev libxslt1-dev ]
@@ -83,7 +83,7 @@ default[:package_set][:gems][:dev]       = %w[
 
 default[:package_set][:pkgs][:sysadmin]  = \
     case node.platform
-      when 'centos'
+      when 'centos','redhat'
         %w[ dstat tree chkconfig sysstat nmap ]
       else
         %w[ ifstat htop tree chkconfig sysstat nmap python-software-properties ]
@@ -92,7 +92,7 @@ default[:package_set][:gems][:sysadmin]  = %w[]
 
 default[:package_set][:pkgs][:text]      = \
     case node.platform
-      when 'centos'
+      when 'centos','redhat'
         %w[ libidn-devel libxml2-devel libxslt-devel tidy ]
       else
         %w[ libidn11-dev libxml2-dev libxml2-utils libxslt1-dev tidy ]
@@ -107,7 +107,7 @@ default[:package_set][:gems][:vagrant]   = %w[ vagrant veewee ironfan ]
 
 default[:package_set][:pkgs][:python]    = \
     case node.platform
-      when 'centos'
+      when 'centos','redhat'
         %w[ python-devel python-setuptools python-simplejson ]
       else
         %w[ python-dev python-setuptools python-simplejson ]
@@ -122,7 +122,7 @@ default[:package_set][:pkgs][:datatools] = %w[
 
 default[:package_set][:pkgs][:emacs]     = \
     case node.platform
-      when 'centos'
+      when 'centos','redhat'
         %w[ emacs-nox emacs-el ]
       else
         ruby_mode = (node[:languages][:ruby][:version] =~ /^1.9/ ? "ruby1.9.1-elisp" : "ruby") rescue nil
