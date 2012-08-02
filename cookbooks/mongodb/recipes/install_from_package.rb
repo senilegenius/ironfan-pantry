@@ -20,7 +20,7 @@
 #
 
 case node.platform
-when "centos"
+when "centos","redhat"
   package "mongo-10gen"
   package "mongo-10gen-server"
 else
